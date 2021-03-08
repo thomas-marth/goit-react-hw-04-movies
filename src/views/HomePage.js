@@ -24,7 +24,6 @@ export default class HomePage extends Component {
 
   render() {
     const { movies } = this.state;
-    // console.log(movies)
     return (
       <>
         <h2>Trending today:</h2>
