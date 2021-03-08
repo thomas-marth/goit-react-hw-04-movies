@@ -8,14 +8,12 @@ const fetchMovieDetails = (movieID) => {
   );
 };
 
-//serch movie by queryString
 const fetchMovieWithQuery = (query) => {
   return fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`)
     .then((res) => res.json())
     .then((data) => data.results);
 };
 
-// get popular movies of the day
 const getTrending = () => {
   return fetch(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`)
     .then((res) => res.json())
