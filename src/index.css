@@ -17,7 +17,7 @@ code {
 }
 
 .Navigation-link-active {
-  color: palevioletred;
+  color: rgb(207, 0, 69);
 }
 .Navigation-list {
   display: flex;
