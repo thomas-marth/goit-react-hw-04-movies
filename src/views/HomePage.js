@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
 import moviesAPI from "../services/movies-api";
+import MoviesList from "../components/MovieList";
 
 export default class HomePage extends Component {
   state = {
@@ -27,22 +27,7 @@ export default class HomePage extends Component {
     return (
       <>
         <h2>Trending today:</h2>
-        {movies.length > 0 && (
-          <ul>
-            {movies.map((movie) => (
-              <li key={movie.id}>
-                <NavLink
-                  to={{
-                    pathname: `movies/${movie.id}`,
-                    state: { from: this.props.location },
-                  }}
-                >
-                  {movie.title}
-                </NavLink>{" "}
-              </li>
-            ))}
-          </ul>
-        )}
+        <MoviesList movies={movies} />
       </>
     );
   }

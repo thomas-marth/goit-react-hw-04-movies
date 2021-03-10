@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 // import routes from '../routes'
-import { NavLink } from "react-router-dom";
 import moviesAPI from "../services/movies-api";
 import Searchbar from "../components/Searchbar";
 import getQueryParams from "../utils/get-query-params";
 import Loader from "../components/Loader";
+import MoviesList from "../components/MovieList";
 
 export default class MoviesPage extends Component {
   state = {
@@ -48,28 +48,13 @@ export default class MoviesPage extends Component {
 
   render() {
     const { movies, loading } = this.state;
-    const { match } = this.props;
+
     return (
       <>
+        <h2>Movies Page</h2>
         <Searchbar onSubmit={this.handleChangeQuery} />
-        <h1>Movies Page</h1>
         {loading && <Loader />}
-        {movies && (
-          <ul>
-            {movies.map((movie) => (
-              <li key={movie.id}>
-                <NavLink
-                  to={{
-                    pathname: `${match.url}/${movie.id}`,
-                    state: { from: this.props.location },
-                  }}
-                >
-                  {movie.title}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        )}
+        <MoviesList movies={movies} />
       </>
     );
   }
