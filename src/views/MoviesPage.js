@@ -51,7 +51,7 @@ export default class MoviesPage extends Component {
 
     return (
       <>
-        <h2>Movies Page</h2>
+        <h2>Search movies</h2>
         <Searchbar onSubmit={this.handleChangeQuery} />
         {loading && <Loader />}
         <MoviesList movies={movies} />
