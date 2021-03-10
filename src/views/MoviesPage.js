@@ -17,7 +17,6 @@ export default class MoviesPage extends Component {
     const { query } = getQueryParams(this.props.location.search);
 
     if (query) {
-      console.log("есть квери, можно фетчить");
       this.fetchMovie(query);
     }
   }
